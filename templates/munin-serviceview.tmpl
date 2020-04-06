@@ -16,34 +16,34 @@
       
       <div class="row">
         <div class="col-md-6">
-          <img data-href="<TMPL_VAR NAME="ZOOMDAY">" src="<TMPL_VAR NAME="IMGDAY">" 
+          <img data-href="<TMPL_VAR NAME='ZOOMDAY' />" src="<TMPL_VAR NAME='IMGDAY' />" 
            alt="daily graph"
-           class="img-responsive img-zoom i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
-           <TMPL_IF NAME="IMGDAYWIDTH">width="<TMPL_VAR NAME="IMGDAYWIDTH">" </TMPL_IF> 
-           <TMPL_IF NAME="IMGDAYHEIGHT">height="<TMPL_VAR NAME="IMGDAYHEIGHT">"</TMPL_IF>/>
+           class="img-fluid img-zoom i<TMPL_IF NAME='STATE_WARNING'> warn</TMPL_IF><TMPL_IF NAME='STATE_CRITICAL'> crit</TMPL_IF>"
+           <TMPL_IF NAME="IMGDAYWIDTH" />width="<TMPL_VAR NAME='IMGDAYWIDTH' />" </TMPL_IF> 
+           <TMPL_IF NAME="IMGDAYHEIGHT" />height="<TMPL_VAR NAME='IMGDAYHEIGHT' />"</TMPL_IF>/>
         </div>
         <div class="col-md-6">
-          <img data-href="<TMPL_VAR NAME="ZOOMWEEK">" src="<TMPL_VAR NAME="IMGWEEK">" 
+          <img data-href="<TMPL_VAR NAME='ZOOMWEEK'>" src="<TMPL_VAR NAME='IMGWEEK'>" 
            alt="weekly graph" 
-           class="img-responsive img-zoom i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
-           <TMPL_IF NAME="IMGWEEKWIDTH">width="<TMPL_VAR NAME="IMGWEEKWIDTH">" </TMPL_IF> 
-           <TMPL_IF NAME="IMGWEEKHEIGHT">height="<TMPL_VAR NAME="IMGWEEKHEIGHT">"</TMPL_IF>/>
+           class="img-fluid img-zoom i<TMPL_IF NAME='STATE_WARNING'> warn</TMPL_IF><TMPL_IF NAME='STATE_CRITICAL'> crit</TMPL_IF>"
+           <TMPL_IF NAME="IMGWEEKWIDTH" />width="<TMPL_VAR NAME='IMGWEEKWIDTH' />" </TMPL_IF> 
+           <TMPL_IF NAME="IMGWEEKHEIGHT" />height="<TMPL_VAR NAME='IMGWEEKHEIGHT' />"</TMPL_IF>/>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <img data-href="<TMPL_VAR NAME="ZOOMMONTH">" src="<TMPL_VAR NAME="IMGMONTH">" 
+          <img data-href="<TMPL_VAR NAME='ZOOMMONTH'>" src="<TMPL_VAR NAME='IMGMONTH'>" 
            alt="monthly graph" 
-           class="img-responsive img-zoom i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
-           <TMPL_IF NAME="IMGMONTHWIDTH">width="<TMPL_VAR NAME="IMGMONTHWIDTH">" </TMPL_IF> 
-           <TMPL_IF NAME="IMGMONTHHEIGHT">height="<TMPL_VAR NAME="IMGMONTHHEIGHT">"</TMPL_IF>/>
+           class="img-fluid img-zoom i<TMPL_IF NAME='STATE_WARNING'> warn</TMPL_IF><TMPL_IF NAME='STATE_CRITICAL'> crit</TMPL_IF>"
+           <TMPL_IF NAME="IMGMONTHWIDTH" />width="<TMPL_VAR NAME='IMGMONTHWIDTH' />" </TMPL_IF> 
+           <TMPL_IF NAME="IMGMONTHHEIGHT" />height="<TMPL_VAR NAME='IMGMONTHHEIGHT' />"</TMPL_IF>/>
         </div>
         <div class="col-md-6">
-          <img data-href="<TMPL_VAR NAME="ZOOMYEAR">" src="<TMPL_VAR NAME="IMGYEAR">" 
+          <img data-href="<TMPL_VAR NAME='ZOOMYEAR'>" src="<TMPL_VAR NAME='IMGYEAR'>" 
            alt="yearly graph" 
-           class="img-responsive img-zoom i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
-           <TMPL_IF NAME="IMGYEARWIDTH">width="<TMPL_VAR NAME="IMGYEARWIDTH">" </TMPL_IF> 
-           <TMPL_IF NAME="IMGYEARHEIGHT">height="<TMPL_VAR NAME="IMGYEARHEIGHT">"</TMPL_IF>/>
+           class="img-fluid img-zoom i<TMPL_IF NAME='STATE_WARNING'> warn</TMPL_IF><TMPL_IF NAME='STATE_CRITICAL'> crit</TMPL_IF>"
+           <TMPL_IF NAME="IMGYEARWIDTH" />width="<TMPL_VAR NAME='IMGYEARWIDTH' />" </TMPL_IF> 
+           <TMPL_IF NAME="IMGYEARHEIGHT" />height="<TMPL_VAR NAME='IMGYEARHEIGHT' />"</TMPL_IF>/>
         </div>
       </div>
       
@@ -51,21 +51,21 @@
       <TMPL_IF NAME="IMGWEEKSUM">
         <div class="row">
           <div class="col-md-6">
-            <img src="<TMPL_VAR NAME="IMGWEEKSUM">" 
+            <img src="<TMPL_VAR NAME='IMGWEEKSUM' />" 
              alt="summed weekly graph" 
-             <TMPL_IF NAME="IMGWEEKSUMWIDTH">width="<TMPL_VAR NAME="IMGWEEKSUMWIDTH">" </TMPL_IF> 
-             <TMPL_IF NAME="IMGWEEKSUMHEIGHT">height="<TMPL_VAR NAME="IMGWEEKSUMHEIGHT">"</TMPL_IF>/>
+             <TMPL_IF NAME="IMGWEEKSUMWIDTH">width="<TMPL_VAR NAME='IMGWEEKSUMWIDTH' />" </TMPL_IF> 
+             <TMPL_IF NAME="IMGWEEKSUMHEIGHT">height="<TMPL_VAR NAME='IMGWEEKSUMHEIGHT' />"</TMPL_IF>/>
           </div>
           <div class="col-md-6">
             <img src="<TMPL_VAR NAME="IMGWEEKSUM">" 
              alt="summed weekly graph" 
-             <TMPL_IF NAME="IMGWEEKSUMWIDTH">width="<TMPL_VAR NAME="IMGWEEKSUMWIDTH">" </TMPL_IF> 
-             <TMPL_IF NAME="IMGWEEKSUMHEIGHT">height="<TMPL_VAR NAME="IMGWEEKSUMHEIGHT">"</TMPL_IF>/>
+             <TMPL_IF NAME="IMGWEEKSUMWIDTH">width="<TMPL_VAR NAME='IMGWEEKSUMWIDTH' />" </TMPL_IF> 
+             <TMPL_IF NAME="IMGWEEKSUMHEIGHT">height="<TMPL_VAR NAME='IMGWEEKSUMHEIGHT' />"</TMPL_IF>/>
           </div>
         </div>
       </TMPL_IF>
       
-      <h2><small>Graph information</small></h2>
+      <h2 class="mt-4"><small>Graph information</small></h2>
       
       <TMPL_LOOP NAME="GRAPHINFO">
         <p class="text-muted"><TMPL_VAR NAME="INFO"></p>
@@ -111,20 +111,20 @@
           
             <div class="row">
               <div class="col-md-12">
-                <img id="zoom_image" class="img-responsive"/>
+                <img id="zoom_image" class="img-fluid"/>
               </div>
             </div>
             
             <div class="row">
               <div class="col-md-12">
                 <form class="form-horizontal" role="form" name="zoom_form" id="zoom_form">
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="plugin_name" class="col-sm-2 control-label">Plugin Name</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="plugin_name" id="plugin_name">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="start_iso8601" class="col-sm-2 control-label">Time Start/Stop</label>
                     <div class="col-sm-5">
                       <input type="text" class="form-control" name="start_iso8601" id="start_iso8601">
@@ -133,7 +133,7 @@
                       <input type="text" class="form-control" name="stop_iso8601" id="stop_iso8601">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="start_epoch" class="col-sm-2 control-label">Epoch Start/Stop</label>
                     <div class="col-sm-5">
                       <input type="text" class="form-control" name="start_epoch" id="start_epoch">
@@ -142,7 +142,7 @@
                       <input type="text" class="form-control" name="stop_epoch" id="stop_epoch">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="lower_limit" class="col-sm-2 control-label">Limit Low/High</label>
                     <div class="col-sm-5">
                       <input type="text" class="form-control" name="lower_limit" id="lower_limit">
@@ -151,7 +151,7 @@
                       <input type="text" class="form-control" name="upper_limit" id="upper_limit">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="size_x" class="col-sm-2 control-label">Width/Height</label>
                     <div class="col-sm-5">
                       <div class="input-group">
@@ -166,7 +166,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group row">
                     <div class="col-sm-offset-2 col-sm-10">
                       <input type=hidden name="cgiurl_graph"/>
                       <button type="submit" class="btn btn-success">Refresh</button>
@@ -198,9 +198,9 @@
 
     <TMPL_INCLUDE NAME="partial/footer_pre.tmpl">
 
-    <script src="<TMPL_VAR NAME="R_PATH">/static/js/formatdate.min.js"></script>
-    <script src="<TMPL_VAR NAME="R_PATH">/static/js/querystring.min.js"></script>
-    <script src="<TMPL_VAR NAME="R_PATH">/static/js/dynazoom.min.js"></script>
+    <script src="<TMPL_VAR NAME='R_PATH'>/static/js/formatdate.min.js"></script>
+    <script src="<TMPL_VAR NAME='R_PATH'>/static/js/querystring.min.js"></script>
+    <script src="<TMPL_VAR NAME='R_PATH'>/static/js/dynazoom.min.js"></script>
     <script type="text/javascript">
       //Zoom modal opening
       $('.img-zoom').click(function(){

@@ -1,43 +1,99 @@
 <TMPL_INCLUDE NAME="partial/head.tmpl">
 
-    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs" role="tablist">
-      <TMPL_LOOP NAME="CATEGORIES">
-        <li <TMPL_IF NAME="__FIRST__"> class="active" </TMPL_IF>>
-            <a href="#<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-toggle="tab">
-                <TMPL_VAR ESCAPE="HTML" NAME="NAME">
-            </a>
-        </li>
-      </TMPL_LOOP>
-    </ul>
+<div class="btn-group w-100">
+	<a href="javascript:$('.collapse').collapse('show')" class="btn btn-outline-success w-50 mt-2">Open All</a>
+	<a href="javascript:$('.collapse').collapse('hide')" class="btn btn-outline-danger w-50 mt-2">Close All</a>
+</div>
 
-    <div id="munin_nodeview_tab" class="tab-content">
-      <TMPL_LOOP NAME="CATEGORIES">
-        <div class="tab-pane fade <TMPL_IF NAME="__FIRST__">in active</TMPL_IF>" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME">">
-          <TMPL_LOOP NAME="SERVICES">
-            <div class="row">
-              <div class="col-md-6">
-                <a href="<TMPL_VAR NAME="URLX">">
-                  <img class="lazyload img-responsive i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
-                   data-src="<TMPL_VAR NAME="IMGDAY">"
-                   alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" 
-                   <TMPL_IF NAME="IMGDAYWIDTH">width="<TMPL_VAR NAME="IMGDAYWIDTH">" </TMPL_IF>
-                   <TMPL_IF NAME="IMGDAYHEIGHT">height="<TMPL_VAR NAME="IMGDAYHEIGHT">"</TMPL_IF>/>
-                </a>
-              </div>
-              <div class="col-md-6">
-                <a href="<TMPL_VAR NAME="URLX">">
-                  <img class="lazyload img-responsive i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
-                   data-src="<TMPL_VAR NAME="IMGWEEK">"
-                   alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" 
-                   <TMPL_IF NAME="IMGWEEKWIDTH">width="<TMPL_VAR NAME="IMGWEEKWIDTH">" </TMPL_IF> 
-                   <TMPL_IF NAME="IMGWEEKHEIGHT">height="<TMPL_VAR NAME="IMGWEEKHEIGHT">"</TMPL_IF>/>
-                </a>
-              </div>
-            </div>
-          </TMPL_LOOP>
-        </div>
-      </TMPL_LOOP>
-    </div>
+<script>
+	$(document).ready(function (){
+		var doScroll = false;
+		$('.tab-click').on('click', function() {
+			doScroll = true;
+			var theCollapse = '#' + $(this).data("target") + "_coll";
+
+			if ( $(theCollapse).hasClass('show') ) {
+				// Already open, lets just trigger the event.
+				$(theCollapse).trigger('shown.bs.collapse');
+			} else {
+				// Close all
+				$(".card-collapse.collapse").collapse("hide");
+				// Open the one we want
+				$(theCollapse).collapse('show');
+			}
+			// Do nothing with the click otherwise.
+			return false;
+		});
+		$('.collapse').on('shown.bs.collapse', function(e) {
+			if ( doScroll ) {
+				var $card = $(this).closest('.card');
+				$('html,body').animate({
+					scrollTop: $card.offset().top
+				}, 500);
+				doScoll = false;
+			}
+		});
+		
+		if ( location.hash != "" ) {
+			doScroll = true;
+			$(location.hash + "_coll" + '.collapse').collapse('show');
+		}
+
+		if ( $(".card-collapse.collapse").length < 2 ) {
+			// If there is only one service group, show it by default.
+			$(".card-collapse.collapse").collapse('show');
+		}
+	});
+</script>
+
+<nav>
+	<ol class="breadcrumb mt-2 justify-content-center">
+		<TMPL_LOOP NAME="CATEGORIES">
+			<li class="breadcrumb-item-svc">
+				<a class="tab-click" data-target="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" href="#<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-toggle="tab">
+					<TMPL_VAR ESCAPE="HTML" NAME="NAME" />
+				</a>
+			</li>
+		</TMPL_LOOP>
+	</ol>
+</nav>
+
+<TMPL_LOOP NAME="CATEGORIES">
+	<div class="card mt-2">
+		<div class="dropdown-toggle card-header" role="tab" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" data-toggle="collapse" href="#<TMPL_VAR ESCAPE="HTML" NAME="NAME" />_coll">
+			Category :: <TMPL_VAR ESCAPE="HTML" NAME="NAME" />
+		</div>
+		<div class="card-collapse collapse" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />_coll" role="tabpanel" aria-labelledby="collapse-heading-1">
+			<div class="card-body">
+				<TMPL_LOOP NAME="SERVICES">
+					<div class="row">
+						<div class="col-md-6">
+							<a href="<TMPL_VAR NAME="URLX" />">
+								<img class="lazyload img-fluid i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
+								 data-src="<TMPL_VAR NAME="IMGDAY" />"
+								 alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" 
+								 <TMPL_IF NAME="IMGDAYWIDTH">width="<TMPL_VAR NAME="IMGDAYWIDTH" />" </TMPL_IF>
+								 <TMPL_IF NAME="IMGDAYHEIGHT">height="<TMPL_VAR NAME="IMGDAYHEIGHT" />"</TMPL_IF>/>
+							</a>
+						</div>
+						<div class="col-md-6 d-none d-md-block">
+							<a href="<TMPL_VAR NAME="URLX" />">
+								<img class="lazyload img-fluid i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
+								 data-src="<TMPL_VAR NAME="IMGWEEK" />"
+								 alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" 
+								 <TMPL_IF NAME="IMGWEEKWIDTH" />width="<TMPL_VAR NAME="IMGWEEKWIDTH" />" </TMPL_IF> 
+								 <TMPL_IF NAME="IMGWEEKHEIGHT" />height="<TMPL_VAR NAME="IMGWEEKHEIGHT" />"</TMPL_IF>/>
+							</a>
+						</div>
+					</div>
+				</TMPL_LOOP>
+			</div>
+		</div>
+	</div>
+
+</TMPL_LOOP>
+
+
 
 <TMPL_INCLUDE NAME="partial/footer_pre.tmpl">
 <TMPL_INCLUDE NAME="partial/footer.tmpl">
