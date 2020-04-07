@@ -1,4 +1,4 @@
-<TMPL_INCLUDE NAME="partial/head.tmpl">
+<TMPL_INCLUDE NAME="partial/head.tmpl" />
 <!--
 	File: munin-nodeview.tmpl
 
@@ -70,6 +70,13 @@
 			window.doScroll = true;
 			$(location.hash + "_coll" + '.collapse').collapse('show');
 		}
+
+		// Alternatively, if something changed the hash (looking at you search feature), we should
+		// pretend that the user clicked on the link for that category.
+		$( window ).on( 'hashchange', function( e ) {
+			var newPlace = window.location.hash.substr(1);;
+			$(".tab-click[data-target='" + newPlace + "']").trigger("click");
+		} );
 
 		// If there is only one service group, show it by default.
 		if ( $(".card-collapse.collapse").length < 2 ) {
@@ -151,5 +158,5 @@
 
 
 
-<TMPL_INCLUDE NAME="partial/footer_pre.tmpl">
-<TMPL_INCLUDE NAME="partial/footer.tmpl">
+<TMPL_INCLUDE NAME="partial/footer_pre.tmpl" />
+<TMPL_INCLUDE NAME="partial/footer.tmpl" />
