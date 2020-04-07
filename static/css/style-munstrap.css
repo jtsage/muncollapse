@@ -80,3 +80,35 @@ body {
     color: #6c757d;
     content: "]";
 }
+
+.custom-collapse {
+    color: #6c757d;
+    font-size: 75%;
+}
+.custom-collapse::before {
+    display: inline-block;
+    color: #6c757d;
+    content: "[";
+}
+.custom-collapse::after {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: "]";
+}
+
+.custom-collapse-all {
+    color: #6c757d;
+    font-size: 75%;
+}
+.custom-collapse-all::before {
+    display: inline-block;
+    color: #6c757d;
+    content: "[";
+}
+.custom-collapse-all::after {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: "]";
+}
