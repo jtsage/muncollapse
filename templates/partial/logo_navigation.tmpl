@@ -37,6 +37,7 @@
 		
 		<ol class="breadcrumb">
 			<TMPL_IF NAME="NAME">
+				<!-- 2.0.37 - Shouldn't get hit with new HTML generator -->
 				<li class="breadcrumb-item"><a href="<TMPL_VAR NAME='R_PATH'>">Home</a></li>
 				<li class="breadcrumb-item"><TMPL_VAR NAME="NAME" /></li>
 			<TMPL_ELSE>

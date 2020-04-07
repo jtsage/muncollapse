@@ -1,15 +1,43 @@
 <TMPL_INCLUDE NAME="partial/head.tmpl">
+<!--
+	File: munin-nodeview.tmpl
 
-<div class="btn-group w-100">
-	<a href="javascript:$('.collapse').collapse('show')" class="btn btn-outline-success w-50 mt-2">Open All</a>
-	<a href="javascript:$('.collapse').collapse('hide')" class="btn btn-outline-danger w-50 mt-2">Close All</a>
+	Used: Individual Host View top level template / Multigraph also hits here.
+-->
+
+<div class="btn-group w-100 mt-2">
+	<a href="#" class="graph-click btn btn-outline-success w-25" data-gset="day">Day <span class='gset-state'>Shown</span></a>
+	<a href="#" class="graph-click btn btn-outline-success w-25" data-gset="week">Week <span class='gset-state'>Shown</span></a>
+	<a href="#" class="graph-click btn btn-outline-secondary w-25" data-gset="month">Month <span class='gset-state'>Hidden</span></a>
+	<a href="#" class="graph-click btn btn-outline-secondary w-25" data-gset="year">Year <span class='gset-state'>Hidden</span></a>
 </div>
 
 <script>
 	$(document).ready(function (){
-		var doScroll = false;
+		// Should we auto-scroll when a service category is opened?
+		window.doScroll = false;
+		// Store display status of graph periods
+		window.gsets = {
+			"day"   : true,
+			"week"  : true,
+			"month" : false,
+			"year"  : false
+		};
+
+		$('.graph-click').on('click', function(){
+			// This shows / hides graph periods.
+			var gset = $(this).data("gset");
+			var newState = ! gsets[gset];
+			gsets[gset] = newState;
+			$(this)
+				.toggleClass("btn-outline-success btn-outline-secondary")
+				.find(".gset-state")
+				.text((newState ? "Shown" : "Hidden"));
+			$('.graph-' + gset).toggleClass("d-none");
+			return false;
+		});
 		$('.tab-click').on('click', function() {
-			doScroll = true;
+			window.doScroll = true; // Do scroll when we click a tab header
 			var theCollapse = '#' + $(this).data("target") + "_coll";
 
 			if ( $(theCollapse).hasClass('show') ) {
@@ -24,23 +52,27 @@
 			// Do nothing with the click otherwise.
 			return false;
 		});
+
+		// Actual scroll function
 		$('.collapse').on('shown.bs.collapse', function(e) {
-			if ( doScroll ) {
+			if ( window.doScroll ) {
 				var $card = $(this).closest('.card');
 				$('html,body').animate({
 					scrollTop: $card.offset().top
 				}, 500);
-				doScoll = false;
+				window.doScroll = false;
 			}
 		});
 		
+
+		// If we came here with a hash, open that category and scroll to it.
 		if ( location.hash != "" ) {
-			doScroll = true;
+			window.doScroll = true;
 			$(location.hash + "_coll" + '.collapse').collapse('show');
 		}
 
+		// If there is only one service group, show it by default.
 		if ( $(".card-collapse.collapse").length < 2 ) {
-			// If there is only one service group, show it by default.
 			$(".card-collapse.collapse").collapse('show');
 		}
 	});
@@ -48,6 +80,9 @@
 
 <nav>
 	<ol class="breadcrumb mt-2 justify-content-center">
+		<li class="breadcrumb-item-svc">
+			<a href="javascript:$('.collapse').collapse('show')">Open All</a>
+		</li>
 		<TMPL_LOOP NAME="CATEGORIES">
 			<li class="breadcrumb-item-svc">
 				<a class="tab-click" data-target="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" href="#<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-toggle="tab">
@@ -55,6 +90,9 @@
 				</a>
 			</li>
 		</TMPL_LOOP>
+		<li class="breadcrumb-item-svc">
+			<a href="javascript:$('.collapse').collapse('hide')">Close All</a>
+		</li>
 	</ol>
 </nav>
 
@@ -67,7 +105,7 @@
 			<div class="card-body">
 				<TMPL_LOOP NAME="SERVICES">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="graph-day col-md-6">
 							<a href="<TMPL_VAR NAME="URLX" />">
 								<img class="lazyload img-fluid i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
 								 data-src="<TMPL_VAR NAME="IMGDAY" />"
@@ -76,13 +114,31 @@
 								 <TMPL_IF NAME="IMGDAYHEIGHT">height="<TMPL_VAR NAME="IMGDAYHEIGHT" />"</TMPL_IF>/>
 							</a>
 						</div>
-						<div class="col-md-6 d-none d-md-block">
+						<div class="graph-week col-md-6">
 							<a href="<TMPL_VAR NAME="URLX" />">
 								<img class="lazyload img-fluid i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
 								 data-src="<TMPL_VAR NAME="IMGWEEK" />"
 								 alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" 
 								 <TMPL_IF NAME="IMGWEEKWIDTH" />width="<TMPL_VAR NAME="IMGWEEKWIDTH" />" </TMPL_IF> 
 								 <TMPL_IF NAME="IMGWEEKHEIGHT" />height="<TMPL_VAR NAME="IMGWEEKHEIGHT" />"</TMPL_IF>/>
+							</a>
+						</div>
+						<div class="graph-month col-md-6 d-none">
+							<a href="<TMPL_VAR NAME="URLX" />">
+								<img class="lazyload img-fluid i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
+								 data-src="<TMPL_VAR NAME="IMGMONTH" />"
+								 alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" 
+								 <TMPL_IF NAME="IMGMONTHWIDTH" />width="<TMPL_VAR NAME="IMGMONTHWIDTH" />" </TMPL_IF> 
+								 <TMPL_IF NAME="IMGMONTHHEIGHT" />height="<TMPL_VAR NAME="IMGMONTHHEIGHT" />"</TMPL_IF>/>
+							</a>
+						</div>
+						<div class="graph-year col-md-6 d-none">
+							<a href="<TMPL_VAR NAME="URLX" />">
+								<img class="lazyload img-fluid i<TMPL_IF NAME="STATE_WARNING"> warn</TMPL_IF><TMPL_IF NAME="STATE_CRITICAL"> crit</TMPL_IF>"
+								 data-src="<TMPL_VAR NAME="IMGYEAR" />"
+								 alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" 
+								 <TMPL_IF NAME="IMGYEARWIDTH" />width="<TMPL_VAR NAME="IMGYEARWIDTH" />" </TMPL_IF> 
+								 <TMPL_IF NAME="IMGYEARHEIGHT" />height="<TMPL_VAR NAME="IMGYEARHEIGHT" />"</TMPL_IF>/>
 							</a>
 						</div>
 					</div>

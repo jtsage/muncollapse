@@ -1,9 +1,9 @@
-Munstrap
-========
+Munstrap4
+=========
 
-Alternative Munin 2.x templates based on Twitter Bootstrap 3.   
-From February 2015 the Munstrap template has been added to the [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib) repo.
-Please use that location in future.
+Alternative Munin 2.x templates based on Twitter Bootstrap 4.
+
+Based on "Munstrap" by [Jonny McCullagh](https://github.com/jonnymccullagh), [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib) repo.
 
 ![Sample](sample.jpg)
 
@@ -17,15 +17,17 @@ cd /opt
 git clone https://github.com/munin-monitoring/contrib.git
 ```
 
-Replace the Munin stock template with Munstrap (the -b options makes a backup of the official template for rolling back):
+Replace the Munin stock template with Munstrap (Shown is backing up the stock template first):
 
 ```
 cd /etc/munin
-cp -rb /opt/contrib/templates/munstrap/templates .
-cp -rb /opt/contrib/templates/munstrap/static .
+mv templates templates.stock
+mv static static.stock 
+cp -r /opt/contrib/templates/munstrap4/templates .
+cp -r /opt/contrib/templates/munstrap4/static .
 ```
 
-Clean the old generated files:
+Clean the old generated files (this location may differ - check /etc/munin/munin.conf for the "htmldir")
 
 ```
 rm -rf /var/www/munin/*
@@ -33,33 +35,14 @@ rm -rf /var/www/munin/*
 
 Take a coffee and wait some minutes for the html generation by Munin.
 
-Upgrades
---------
-
-Get the last changes from Munstrap:
-
-```
-cd /opt/munstrap
-git pull
-```
-
-Replace the old munstrap version with the new one:
-
-```
-cd /etc/munin
-rm -rf templates static
-cp -r /opt/contrib/templates/munstrap/templates .
-cp -r /opt/contrib/templates/munstrap/static .
-```
-
 Revert to Official Munin Template
 ---------------------------------
 
 ```
 cd /etc/munin
 rm -rf templates static
-mv templates~ templates
-mv static~ static
+mv templates.stock templates
+mv static.stock static
 ```
 
 Samples
