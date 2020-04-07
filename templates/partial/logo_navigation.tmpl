@@ -1,3 +1,21 @@
+<!--
+	File: partial/logo_navigation.tmpl
+
+	Used: All views, called after from head.
+-->
+
+<TMPL_IF NAME="PATH"><TMPL_LOOP NAME="PATH">
+<!-- PATH <TMPL_VAR NAME="PATHNAME"> -->
+</TMPL_LOOP>
+<TMPL_ELSE><!-- SHIT -->
+</TMPL_IF>
+
+<TMPL_IF NAME="NAME">
+	<!-- NAME <TMPL_VAR ESCAPE="HTML" NAME="NAME"> -->
+<TMPL_ELSE><!-- NO NAME -->
+
+</TMPL_IF>
+
 <TMPL_IF NAME="PATH">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -16,8 +34,14 @@
 	</nav>
 <TMPL_ELSE>
 	<nav aria-label="breadcrumb">
+		
 		<ol class="breadcrumb">
-			<a href="<TMPL_VAR NAME='R_PATH'>">Home</a>
+			<TMPL_IF NAME="NAME">
+				<li class="breadcrumb-item"><a href="<TMPL_VAR NAME='R_PATH'>">Home</a></li>
+				<li class="breadcrumb-item"><TMPL_VAR NAME="NAME" /></li>
+			<TMPL_ELSE>
+				<li class="breadcrumb-item">Home</li>
+			</TMPL_IF>
 		</ol>
 	</nav>
 </TMPL_IF>

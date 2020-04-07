@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--
+	File: partial/head.tmpl
+
+	Used: All views, called before anything else
+-->
+
 	<head>
 		<title>
-			<TMPL_IF NAME="NAME"><TMPL_VAR ESCAPE="HTML" NAME="NAME"> (</TMPL_IF>Munin <TMPL_LOOP NAME="PATH"><TMPL_IF NAME="pathname"> :: <TMPL_VAR ESCAPE="HTML" NAME="pathname"></TMPL_IF></TMPL_LOOP><TMPL_IF NAME="NAME">)</TMPL_IF>
+			<TMPL_IF NAME="NAME"><TMPL_VAR ESCAPE="HTML" NAME="NAME"> (</TMPL_IF>Munin<TMPL_LOOP NAME="PATH"><TMPL_IF NAME="pathname"> :: <TMPL_VAR ESCAPE="HTML" NAME="pathname"></TMPL_IF></TMPL_LOOP><TMPL_IF NAME="NAME">)</TMPL_IF>
 		</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +18,20 @@
 		<TMPL_UNLESS NAME="SHOW_ZOOM_JS">
 			<meta http-equiv="refresh" content="300" />
 		</TMPL_UNLESS>
-		<link rel="shortcut icon" type="image/x-icon" href="<TMPL_VAR NAME='R_PATH'>/static/img/favicon.ico" />
-		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH'>/static/img/favicon.png" />
-		<link href="<TMPL_VAR NAME='R_PATH'>/static/css/bootstrap4.min.css" rel="stylesheet" />
-		<link href="<TMPL_VAR NAME='R_PATH'>/static/css/style-munstrap.css" rel="stylesheet" />
-		<script src="<TMPL_VAR NAME='R_PATH'>/static/js/jquery.min.js"></script>
-		<script src="<TMPL_VAR NAME='R_PATH'>/static/js/lazysizes.min.js" async></script>
-		<script src="<TMPL_VAR NAME='R_PATH'>/static/js/bootstrap4.min.js"></script>
+		<link rel="shortcut icon" type="image/x-icon" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.ico" />
+		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.png" />
+		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/bootstrap4.min.css" rel="stylesheet" />
+		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/style-munstrap.css" rel="stylesheet" />
+
+		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/jquery.min.js"></script>
+		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/lazysizes.min.js" async></script>
+		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/bootstrap4.min.js"></script>
 	</head>
 
 	<body>
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-			<a class="navbar-brand" href="<TMPL_VAR NAME='R_PATH'>"><span class="munin-icon"></span> MUNIN</a>
+			<a class="navbar-brand" href="<TMPL_VAR NAME='R_PATH' />"><span class="munin-icon"></span> MUNIN</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -31,16 +39,16 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="<TMPL_VAR NAME='R_PATH'>">Home</a>
+						<a class="nav-link" href="<TMPL_VAR NAME='R_PATH' />">Home</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarProblems" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Problems
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarProblems">
-							<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/problems.html#critical"><span class="badge alert-danger mr-2"><TMPL_VAR NAME="NCRITICAL"></span>Critical</a>
-							<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/problems.html#warnings"><span class="badge alert-warning mr-2"><TMPL_VAR NAME="NWARNING"></span>Warning</a>
-							<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/problems.html#unknowns"><span class="badge alert-info mr-2"><TMPL_VAR NAME="NUNKNOWN"></span>Unknown</a>
+							<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/problems.html#critical"><span class="badge alert-danger mr-2"><TMPL_VAR NAME="NCRITICAL"></span>Critical</a>
+							<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/problems.html#warnings"><span class="badge alert-warning mr-2"><TMPL_VAR NAME="NWARNING"></span>Warning</a>
+							<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/problems.html#unknowns"><span class="badge alert-info mr-2"><TMPL_VAR NAME="NUNKNOWN"></span>Unknown</a>
 						</div>
 					</li>
 					<li class="nav-item dropdown">
@@ -49,7 +57,7 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarGroups">
 							<TMPL_LOOP NAME="ROOTGROUPS">
-								<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/<TMPL_VAR NAME='URL'>"><TMPL_VAR NAME="NAME"></a>
+								<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/<TMPL_VAR NAME='URL'>"><TMPL_VAR NAME="NAME"></a>
 							</TMPL_LOOP>
 						</div>
 					</li>
@@ -61,7 +69,7 @@
 							<TMPL_LOOP NAME="ROOTGROUPS">
 								<TMPL_LOOP NAME="GROUPS">
 									<TMPL_IF NAME="NCATEGORIES">
-										<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/<TMPL_VAR NAME='URL'>"><TMPL_VAR ESCAPE="HTML" NAME="NAME"></a>
+										<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/<TMPL_VAR NAME='URL'>"><TMPL_VAR ESCAPE="HTML" NAME="NAME"></a>
 									</TMPL_IF>
 								</TMPL_LOOP>
 							</TMPL_LOOP>
@@ -73,10 +81,10 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarCats">
 								<TMPL_LOOP NAME="GLOBALCATS">
-									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/<TMPL_VAR NAME='URLDAY'>"><TMPL_VAR NAME="NAME"> - Day</a>
-									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/<TMPL_VAR NAME='URLWEEK'>"><TMPL_VAR NAME="NAME"> - Week</a>
-									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/<TMPL_VAR NAME='URLMONTH'>"><TMPL_VAR NAME="NAME"> - Month</a>
-									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH'>/<TMPL_VAR NAME='URLYEAR'>"><TMPL_VAR NAME="NAME"> - Year</a>
+									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/<TMPL_VAR NAME='URLDAY'>"><TMPL_VAR NAME="NAME"> - Day</a>
+									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/<TMPL_VAR NAME='URLWEEK'>"><TMPL_VAR NAME="NAME"> - Week</a>
+									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/<TMPL_VAR NAME='URLMONTH'>"><TMPL_VAR NAME="NAME"> - Month</a>
+									<a class="dropdown-item" href="<TMPL_VAR NAME='R_PATH' />/<TMPL_VAR NAME='URLYEAR'>"><TMPL_VAR NAME="NAME"> - Year</a>
 									<TMPL_IF NAME="__first__"><div class="dropdown-divider"></div></TMPL_IF>
 									<TMPL_IF NAME="__inner__"><div class="dropdown-divider"></div></TMPL_IF>
 								</TMPL_LOOP>
