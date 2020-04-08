@@ -7,6 +7,8 @@ Based on "Munstrap" by [Jonny McCullagh](https://github.com/jonnymccullagh), [mu
 
 ![Sample (Overview)](sample-home.png)
 
+[Semi-Live Demo](https://jtsage.dev/munin-demo/) - Zoom functionality for this demo has been disabled, and the data will never update, but it's a decent visual reference.
+
 Installation
 ------------
 
