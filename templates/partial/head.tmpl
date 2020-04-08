@@ -21,7 +21,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.ico" />
 		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.png" />
 		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/bootstrap4.min.css" rel="stylesheet" />
-		<!-- <link href="<TMPL_VAR NAME='R_PATH' />/static/css/typeaheadjs.min.css" rel="stylesheet" /> -->
 		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/style-munstrap.css" rel="stylesheet" />
 
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/jquery.min.js"></script>
@@ -91,12 +90,13 @@
 				// (omit if "base" is the current folder without trailing slash)
 				
 				for (var i=0; i<parts.length; i++) {
-					if (parts[i] == ".")
-						continue;
-					if (parts[i] == "..")
+					if (parts[i] == ".")  { continue; }
+
+					if (parts[i] == "..") {
 						stack.pop();
-					else
+					} else {
 						stack.push(parts[i]);
+					}
 				}
 				return stack.join("/");
 			}

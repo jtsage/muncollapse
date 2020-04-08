@@ -5,7 +5,7 @@ Alternative Munin 2.x templates based on Twitter Bootstrap 4.
 
 Based on "Munstrap" by [Jonny McCullagh](https://github.com/jonnymccullagh), [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib) repo.
 
-![Sample](sample.jpg)
+![Sample (Overview)](sample-home.jpg)
 
 Installation
 ------------
@@ -47,9 +47,16 @@ mv static.stock static
 
 Samples
 -------
+View of a group:
+![Group view](sample-group.png)
 
 View of a specific node:
-![Node view](sample-node.jpg)
+![Node view](sample-node.png)
 
 Zoom feature:
-![Zoom view](sample-zoom.jpg)
+![Zoom view](sample-zoom.png)
+
+
+TODO
+----
+ * Comparison view templates

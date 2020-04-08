@@ -154,9 +154,9 @@ span.twitter-typeahead .tt-suggestion {
 }
 
 span.twitter-typeahead .tt-suggestion:focus, .dropdown-item:hover, span.twitter-typeahead .tt-suggestion:hover {
-      color: #2b2d2f;
-      text-decoration: none;
-      background-color: #f5f5f5;
+    color: #2b2d2f;
+    text-decoration: none;
+    background-color: #f5f5f5;
 }
 
 span.twitter-typeahead .active.tt-suggestion, span.twitter-typeahead .tt-suggestion.tt-cursor, span.twitter-typeahead .active.tt-suggestion:focus, span.twitter-typeahead .tt-suggestion.tt-cursor:focus, span.twitter-typeahead .active.tt-suggestion:hover, span.twitter-typeahead .tt-suggestion.tt-cursor:hover {
@@ -167,7 +167,7 @@ span.twitter-typeahead .active.tt-suggestion, span.twitter-typeahead .tt-suggest
 }
 
 span.twitter-typeahead .disabled.tt-suggestion, span.twitter-typeahead .disabled.tt-suggestion:focus, span.twitter-typeahead .disabled.tt-suggestion:hover {
-      color: #818a91;
+    color: #818a91;
 }
 
 span.twitter-typeahead {
@@ -175,8 +175,14 @@ span.twitter-typeahead {
 }
 
 .input-group span.twitter-typeahead {
-      display: block !important;
+    display: block !important;
 }
 .input-group span.twitter-typeahead .tt-menu {
-        top: 2.375rem !important;
+    top: 2.375rem !important;
 }
+
+span.hangindent2 { padding-left: 1em; }
+span.hangindent3 { padding-left: 2em; }
+span.hangindent4 { padding-left: 3em; }
+span.hangindent5 { padding-left: 4em; }
+span.hangindent6 { padding-left: 5em; }

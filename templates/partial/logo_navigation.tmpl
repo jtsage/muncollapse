@@ -4,37 +4,49 @@
 	Used: All views, called after from head.
 -->
 
+<!-- TEST DATA :: BEGIN -->
 <TMPL_IF NAME="PATH"><TMPL_LOOP NAME="PATH">
-<!-- PATH <TMPL_VAR NAME="PATHNAME"> -->
+	<!-- PATH <TMPL_VAR NAME="PATHNAME"> -->
 </TMPL_LOOP>
-<TMPL_ELSE><!-- SHIT -->
+<TMPL_ELSE>
+	<!-- SHIT -->
 </TMPL_IF>
 
+<TMPL_IF NAME="CATEGORY" >
+	<!-- CAT: <TMPL_VAR ESCAPE="HTML" NAME="CATEGORY" /> -->
+</TMPL_IF>
 <TMPL_IF NAME="NAME">
 	<!-- NAME <TMPL_VAR ESCAPE="HTML" NAME="NAME"> -->
-<TMPL_ELSE><!-- NO NAME -->
-
+<TMPL_ELSE>
+	<!-- NO NAME -->
 </TMPL_IF>
+<!-- TEST DATA :: END -->
 
 <TMPL_IF NAME="PATH">
-	<nav aria-label="breadcrumb">
+	<nav aria-label="breadcrumb pt1">
 		<ol class="breadcrumb">
 			<TMPL_LOOP NAME="PATH">
 				<li class="breadcrumb-item">
-					<TMPL_IF NAME="PATHNAME"> 
+					<TMPL_IF NAME="PATHNAME">
 						<TMPL_IF NAME="PATH"><a href="<TMPL_VAR NAME='PATH'>"></TMPL_IF>
 						<TMPL_VAR NAME="PATHNAME">
 						<TMPL_IF NAME="PATH"></a></TMPL_IF>
 					<TMPL_ELSE>
 						<a href="<TMPL_VAR NAME='R_PATH'>">Home</a>
+						<TMPL_IF NAME="CATEGORY">
+							</li><li class="breadcrumb-item">Category :: <TMPL_VAR NAME="CATEGORY" />
+							<TMPL_IF NAME="TIMEDAY"> - by day</TMPL_IF>
+							<TMPL_IF NAME="TIMEWEEK"> - by week</TMPL_IF>
+							<TMPL_IF NAME="TIMEMONTH"> - by month</TMPL_IF>
+							<TMPL_IF NAME="TIMEYEAR"> - by year</TMPL_IF>
+						</TMPL_IF>
 					</TMPL_IF>
 				</li>
 			</TMPL_LOOP>
 		</ol>
 	</nav>
 <TMPL_ELSE>
-	<nav aria-label="breadcrumb">
-		
+	<nav aria-label="breadcrumb pt2">
 		<ol class="breadcrumb">
 			<TMPL_IF NAME="NAME">
 				<!-- 2.0.37 - Shouldn't get hit with new HTML generator -->
