@@ -149,7 +149,8 @@
 				}
 				);
 
-				$('#findthehost').on('typeahead:change',function(){ $('#formy1').submit(); });
+				//$('#findthehost').on('typeahead:change',function(){ $('#formy1').submit(); });
+				$('#findthehost').on('typeahead:select',function(){ $('#formy1').submit(); });
 
 				$('#formy1').on('submit', function(){
 					inputVal = $('#findthehost').val();

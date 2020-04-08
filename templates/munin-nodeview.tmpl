@@ -82,13 +82,22 @@
 		if ( $(".card-collapse.collapse").length < 2 ) {
 			$(".card-collapse.collapse").collapse('show');
 		}
+
+		$(".close-all-tabs").on("click", function(){
+			$('.card-collapse.collapse').collapse('hide');
+			return false;
+		});
+		$(".open-all-tabs").on("click", function() {
+			$('.card-collapse.collapse').collapse('show');
+			return false;
+		});
 	});
 </script>
 
 <nav>
 	<ol class="breadcrumb mt-2 justify-content-center">
 		<li class="breadcrumb-item-svc">
-			<a href="javascript:$('.collapse').collapse('show')">Open All</a>
+			<a class="open-all-tabs" href="#">Open All</a>
 		</li>
 		<TMPL_LOOP NAME="CATEGORIES">
 			<li class="breadcrumb-item-svc">
@@ -98,7 +107,7 @@
 			</li>
 		</TMPL_LOOP>
 		<li class="breadcrumb-item-svc">
-			<a href="javascript:$('.collapse').collapse('hide')">Close All</a>
+			<a class="close-all-tabs" href="#">Close All</a>
 		</li>
 	</ol>
 </nav>
