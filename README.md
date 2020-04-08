@@ -5,7 +5,7 @@ Alternative Munin 2.x templates based on Twitter Bootstrap 4.
 
 Based on "Munstrap" by [Jonny McCullagh](https://github.com/jonnymccullagh), [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib) repo.
 
-![Sample (Overview)](sample-home.jpg)
+![Sample (Overview)](sample-home.png)
 
 Installation
 ------------
