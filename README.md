@@ -57,6 +57,7 @@ Zoom feature:
 ![Zoom view](sample-zoom.png)
 
 
-TODO
-----
- * Comparison view templates
+Compatibility
+-------------
+a/n: I am unsure of the compatibility with the next major version of munin. Most things will work
+from what I've read, but the navigation may be slightly funky.
