@@ -113,6 +113,17 @@ body {
     content: "]";
 }
 
+.cat-list::before {
+    display: inline-block;
+    color: #6c757d;
+    content: "[ ";
+}
+.cat-list::after {
+    display: inline-block;
+    color: #6c757d;
+    content: " ]";
+}
+
 span.twitter-typeahead .tt-menu {
     cursor: pointer;
 }

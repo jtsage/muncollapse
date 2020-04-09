@@ -5,6 +5,7 @@
 -->
 
 <!-- TEST DATA :: BEGIN -->
+<!-- a/n: IF THE NAVIGATION LOOKS WIERD, PLEASE INCLUDE THIS INFO WHEN ASKING FOR HELP FIXING. -->
 <TMPL_IF NAME="PATH"><TMPL_LOOP NAME="PATH">
 	<!-- PATH <TMPL_VAR NAME="PATHNAME"> -->
 </TMPL_LOOP>
@@ -34,11 +35,10 @@
 					<TMPL_ELSE>
 						<a href="<TMPL_VAR NAME='R_PATH'>">Home</a>
 						<TMPL_IF NAME="CATEGORY">
-							</li><li class="breadcrumb-item">Category :: <TMPL_VAR NAME="CATEGORY" />
-							<TMPL_IF NAME="TIMEDAY"> - by day</TMPL_IF>
-							<TMPL_IF NAME="TIMEWEEK"> - by week</TMPL_IF>
-							<TMPL_IF NAME="TIMEMONTH"> - by month</TMPL_IF>
-							<TMPL_IF NAME="TIMEYEAR"> - by year</TMPL_IF>
+							<TMPL_IF NAME="TIMEDAY"></li><li class="breadcrumb-item">Category :: <TMPL_VAR NAME="CATEGORY" /> - by day</TMPL_IF>
+							<TMPL_IF NAME="TIMEWEEK"></li><li class="breadcrumb-item">Category :: <TMPL_VAR NAME="CATEGORY" /> - by week</TMPL_IF>
+							<TMPL_IF NAME="TIMEMONTH"></li><li class="breadcrumb-item">Category :: <TMPL_VAR NAME="CATEGORY" /> - by month</TMPL_IF>
+							<TMPL_IF NAME="TIMEYEAR"></li><li class="breadcrumb-item">Category :: <TMPL_VAR NAME="CATEGORY" /> - by year</TMPL_IF>
 						</TMPL_IF>
 					</TMPL_IF>
 				</li>
