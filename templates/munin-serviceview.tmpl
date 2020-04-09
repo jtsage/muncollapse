@@ -61,7 +61,7 @@
 					<TMPL_IF NAME="IMGWEEKSUMHEIGHT">height="<TMPL_VAR NAME='IMGWEEKSUMHEIGHT' />"</TMPL_IF>/>
 			</div>
 			<div class="col-md-6">
-				<img src="<TMPL_VAR NAME="IMGWEEKSUM">" 
+				<img src="<TMPL_VAR NAME='IMGWEEKSUM' />" 
 					alt="summed weekly graph" 
 					<TMPL_IF NAME="IMGWEEKSUMWIDTH">width="<TMPL_VAR NAME='IMGWEEKSUMWIDTH' />" </TMPL_IF> 
 					<TMPL_IF NAME="IMGWEEKSUMHEIGHT">height="<TMPL_VAR NAME='IMGWEEKSUMHEIGHT' />"</TMPL_IF>/>
@@ -115,7 +115,7 @@
 			
 				<div class="row">
 					<div class="col-md-12">
-						<img id="zoom_image" class="img-fluid"/>
+						<img alt="Zoom Image - Requires munin-cgi-graph" id="zoom_image" class="img-fluid"/>
 					</div>
 				</div>
 				

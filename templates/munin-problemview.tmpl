@@ -1,9 +1,11 @@
-<TMPL_INCLUDE NAME="partial/head.tmpl">
+<TMPL_INCLUDE NAME="partial/head.tmpl" />
 
 <!--
 	File: munin-problemview.tmpl
 
 	Used: Problems view, top level template
+
+	NOTE: we don't lazy load on this page - presumably you want to immediatally see all problems
 -->
 <h2>Problem Overview</h2>
 		
@@ -104,5 +106,5 @@
 	</div>
 </TMPL_LOOP>
 
-<TMPL_INCLUDE NAME="partial/footer_pre.tmpl">
-<TMPL_INCLUDE NAME="partial/footer.tmpl">
+<TMPL_INCLUDE NAME="partial/footer_pre.tmpl" />
+<TMPL_INCLUDE NAME="partial/footer.tmpl" />

@@ -114,10 +114,10 @@
 
 <TMPL_LOOP NAME="CATEGORIES">
 	<div class="card mt-2">
-		<div class="dropdown-toggle card-header" role="tab" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" data-toggle="collapse" href="#<TMPL_VAR ESCAPE="HTML" NAME="NAME" />_coll">
+		<div class="dropdown-toggle card-header" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />" data-toggle="collapse" data-target="#<TMPL_VAR ESCAPE="HTML" NAME="NAME" />_coll">
 			Category :: <TMPL_VAR ESCAPE="HTML" NAME="NAME" />
 		</div>
-		<div class="card-collapse collapse" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />_coll" role="tabpanel" aria-labelledby="collapse-heading-1">
+		<div class="card-collapse collapse" id="<TMPL_VAR ESCAPE="HTML" NAME="NAME" />_coll">
 			<div class="card-body">
 				<TMPL_LOOP NAME="SERVICES">
 					<div class="row">
