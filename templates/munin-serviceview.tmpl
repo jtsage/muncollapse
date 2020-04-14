@@ -109,17 +109,18 @@
 </TMPL_LOOP>
 
 <div id="zoom" class="modal fade">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
 			<div class="modal-body">
 			
 				<div class="row">
 					<div class="col-md-12">
-						<img alt="Zoom Image - Requires munin-cgi-graph" id="zoom_image" class="img-fluid"/>
+						<img alt="Zoom Image - Requires munin-cgi-graph" id="zoom_image" class="d-block mx-auto"/>
+						<div id="image-overlay" style="position: absolute; top: 0; left: 0; background-color: rgba(255,0,0,0.3); width: 2px; height: 100%; display:none; pointer-events: none;"></div>
 					</div>
 				</div>
 				
-				<div class="row">
+				<div class="row mt-3">
 					<div class="col-md-12">
 						<form class="form-horizontal" role="form" name="zoom_form" id="zoom_form">
 							<div class="form-group row">
@@ -202,9 +203,8 @@
 
 <TMPL_INCLUDE NAME="partial/footer_pre.tmpl" />
 
-<script src="<TMPL_VAR NAME='R_PATH'>/static/js/formatdate.min.js"></script>
-<script src="<TMPL_VAR NAME='R_PATH'>/static/js/querystring.min.js"></script>
-<script src="<TMPL_VAR NAME='R_PATH'>/static/js/dynazoom.min.js"></script>
+
+<script src="<TMPL_VAR NAME='R_PATH'>/static/js/dynazoom.js"></script>
 <script type="text/javascript">
 	//Zoom modal opening
 	$('.img-zoom').click(function(){

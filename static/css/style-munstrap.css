@@ -18,7 +18,7 @@ div.service-alert {
 }
 
 img#zoom_image {
-    margin-bottom: 15px;
+    border: none;
 }
 
 ul.groupview, ul.groupview ul {

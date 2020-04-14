@@ -20,22 +20,29 @@ $ cd /opt
 $ git clone https://github.com/munin-monitoring/contrib.git
 ```
 
-### 2. Place the template in an appropriate safe place
+### 2. Fetch the template libraries
+
+```
+$ cd /opt/contrib/templates/muncollapse/
+$ make
+```
+
+### 3. Place the template in an appropriate safe place
 
 Ubuntu shown - other distros may prefer ```/usr/local/share/munin/...```
 
 ```
 $ mkdir /usr/share/munin/template
-$ mkdir /usr/share/munin/template/munstrap4
+$ mkdir /usr/share/munin/template/muncollapse
 ```
 __NOTE__: If this step fails, your munin installation may use ```/usr/local/share/munin/...``` instead!
 
 ```
-$ cp -r /opt/contrib/templates/munstrap4/templates /usr/share/munin/template/munstrap4/
-$ cp -r /opt/contrib/templates/munstrap4/static /usr/share/munin/template/munstrap4/
+$ cp -r /opt/contrib/templates/muncollapse/templates /usr/share/munin/template/muncollapse/
+$ cp -r /opt/contrib/templates/muncollapse/static /usr/share/munin/template/muncollapse/
 ```
 
-### 3. Edit your ```munin.conf``` file.
+### 4. Edit your ```munin.conf``` file.
 
 Typically located at ```/etc/munin.conf```
 
@@ -55,14 +62,14 @@ __TO:__
 ```
 # Where to look for the HTML templates
 #
-tmpldir /usr/share/munin/template/munstrap4/templates
+tmpldir /usr/share/munin/template/muncollapse/templates
 
 # Where to look for the static www files
 #
-staticdir /usr/share/munin/template/munstrap4/static
+staticdir /usr/share/munin/template/muncollapse/static
 ```
 
-### 4. [Optional / Recommended] Clean out the old generated files.
+### 5. [Optional / Recommended] Clean out the old generated files.
 
 This isn't really required, but there will likely be orphaned files.  The location of these files can be found in your ```munin.conf``` file, with the ```htmldir``` directive.
 
@@ -72,7 +79,7 @@ __NOTE:__ Ubuntu shown, other distributions may be in ```/var/www/munin/```
 $ rm -rf /var/cache/munin/www/*
 ```
 
-### 5. Wait Patiently
+### 6. Wait Patiently
 
 ```munin-update``` will regenerate the files the next time it runs.  By default, this is on the :05 minute tick for most installations. If you do not have new files within 10 minutes, be sure to check ```munin-update.log``` and find out what went wrong.
 
@@ -88,15 +95,15 @@ __FIND AND CHANGE:__ (near the top of the file - comment these lines out!)
 
 # Where to look for the HTML templates
 #
-#tmpldir /usr/share/munin/template/munstrap4/templates
+#tmpldir /usr/share/munin/template/muncollapse/templates
 
 # Where to look for the static www files
 #
-#staticdir /usr/share/munin/template/munstrap4/static
+#staticdir /usr/share/munin/template/muncollapse/static
 
 ### 2. [Optional / Recommended] Clean up
 
-Remove the files from step #1 & #2 above, and repeat step #4 & #5.
+Remove the files from step #1 & #3 above, and repeat step #5 & #6.
 
 ---
 
