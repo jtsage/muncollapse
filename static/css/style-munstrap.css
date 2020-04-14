@@ -27,11 +27,9 @@ ul.groupview, ul.groupview ul {
 
 .munin-icon {
     background: url(../img/logo-munin.png) left top;
-    margin-top: -6px;
-    width: 35px;
-    height: 35px;
+    width: 115px;
+    height: 30px;
     display: block;
-    float: left;
 }
 
 

@@ -18,16 +18,36 @@
 		<TMPL_UNLESS NAME="SHOW_ZOOM_JS">
 			<meta http-equiv="refresh" content="300" />
 		</TMPL_UNLESS>
-		<link rel="shortcut icon" type="image/x-icon" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.ico" />
-		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.png" />
-		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/bootstrap4.min.css" rel="stylesheet" />
+
+		<link rel="apple-touch-icon" sizes="57x57" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/manifest.json" crossorigin="use-credentials">
+		<link rel="shortcut icon" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#00a300">
+		<meta name="msapplication-TileImage" content="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/mstile-144x144.png">
+		<meta name="msapplication-config" content="<TMPL_VAR NAME='R_PATH' />/static/img/favicon/browserconfig.xml">
+		<meta name="theme-color" content="#076202">
+
+		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/style-munstrap.css" rel="stylesheet" />
 
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/jquery.min.js"></script>
 
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/lazysizes.min.js" async></script>
 
-		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/bootstrap4.min.js"></script>
+		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/bootstrap.min.js"></script>
 
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/typeahead.bundle.min.js"></script>
 		<script>
@@ -171,7 +191,7 @@
 	<body>
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-			<a class="navbar-brand" href="<TMPL_VAR NAME='R_PATH' />"><span class="munin-icon"></span> MUNIN</a>
+			<a class="navbar-brand" href="<TMPL_VAR NAME='R_PATH' />"><span class="munin-icon"></span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
