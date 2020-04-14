@@ -21,11 +21,14 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.ico" />
 		<link rel="icon" type="image/png" href="<TMPL_VAR NAME='R_PATH' />/static/img/favicon.png" />
 		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/bootstrap4.min.css" rel="stylesheet" />
-		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/style-munstrap.min.css" rel="stylesheet" />
+		<link href="<TMPL_VAR NAME='R_PATH' />/static/css/style-munstrap.css" rel="stylesheet" />
 
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/jquery.min.js"></script>
+
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/lazysizes.min.js" async></script>
+
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/bootstrap4.min.js"></script>
+
 		<script src="<TMPL_VAR NAME='R_PATH' />/static/js/typeahead.bundle.min.js"></script>
 		<script>
 			// This is used to build the navigation quick search - there is no backend, so we have to do 
@@ -149,7 +152,6 @@
 				}
 				);
 
-				//$('#findthehost').on('typeahead:change',function(){ $('#formy1').submit(); });
 				$('#findthehost').on('typeahead:select',function(){ $('#formy1').submit(); });
 
 				$('#formy1').on('submit', function(){
