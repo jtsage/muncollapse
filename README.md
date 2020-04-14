@@ -5,7 +5,7 @@ Alternative Munin 2.x templates based on Twitter Bootstrap using collapsibles.
 Based on some of the work of "Munstrap" by [Jonny McCullagh](https://github.com/jonnymccullagh), [munin-monitoring/contrib](https://github.com/munin-monitoring/contrib/tree/master/templates/munstrap) repo.
 
 #### Overview Sample Image
-<a href="sample-images/sample-home.png"><img src="sample-images/sample-home.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
+<a href="sample-image/sample-home.png"><img src="sample-image/sample-home.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
 
 [Semi-Live Demo](https://jtsage.dev/munin-demo/) - For the purposes of this demo only, the data is static and the zoom functionality is disabled.
 
@@ -103,14 +103,14 @@ Remove the files from step #1 & #2 above, and repeat step #4 & #5.
 ## Samples
 
 #### View of a group:
-<a href="sample-images/sample-group.png"><img src="sample-images/sample-group.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
+<a href="sample-image/sample-group.png"><img src="sample-image/sample-group.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
 
 #### View of a specific node:
-<a href="sample-images/sample-node.png"><img src="sample-images/sample-node.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
+<a href="sample-image/sample-node.png"><img src="sample-image/sample-node.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
 
 
 #### Zoom feature:
-<a href="sample-images/sample-zoom.png"><img src="sample-images/sample-zoom.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
+<a href="sample-image/sample-zoom.png"><img src="sample-image/sample-zoom.png" style="max-width: 1229px; display:block; margin-left: auto; margin-right: auto; width: 75%" /></a>
 
 
 ---
