@@ -1,6 +1,15 @@
-/* Cut down version of querystring, with some modernizing */
+/* MunCollapse Template DynaZoom JavaScript File
+*
+* Notes:
+* 
+*  - No Internet Explorer support (uses "URLSearchParams")
+*  - This is not even really a fork of the upstream version any more
+*  - Drops upstream requirement of "QueryString" include (URL.URLSearchParams)
+*  - Drops upstream requirement of "FormatDate" include (Date.toISOString())
+*/
 
 URLSearchParams.prototype.getDefault = function ( name, value ) {
+    // Overload URLSearchParams to allow "default" values.
     return ( this.get( name ) === null ) ? value : this.get( name );
 };
 
