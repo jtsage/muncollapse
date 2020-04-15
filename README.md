@@ -122,6 +122,12 @@ Remove the files from step #1 & #3 above, and repeat step #5 & #6.
 
 ---
 
-## Compatibility
+## Munin Compatibility
 
 a/n: I am unsure of the compatibility with Munin 3. Most things will work from what I've read, but the navigation may be slightly funky.
+
+---
+
+### Browser Compatibility
+
+For this template set, Internet Explorer support has been dropped for the dynamic zoom functions. Everything else should work across all browsers.

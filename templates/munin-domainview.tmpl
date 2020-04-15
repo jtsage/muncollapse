@@ -7,20 +7,20 @@
 -->
 
 <script>
-	$(document).ready(function() {
-		$('.custom-collapse').on('click', function() {
-			$(this).parent().find('.collapse').collapse('toggle');
+	$( document ).ready( function() {
+		$( ".custom-collapse" ).on( "click", function() {
+			$( this ).parent().find( ".collapse" ).collapse( "toggle" );
 			return false;
-		});
-		$('.custom-collapse-all').on('click', function() {
-			if ( $(this).hasClass('all-hide') ) {
-				$(this).parent().parent().find('.collapse').collapse('hide');
+		} );
+		$( ".custom-collapse-all" ).on( "click", function() {
+			if ( $( this ).hasClass( "all-hide" ) ) {
+				$( this ).parent().parent().find( ".collapse" ).collapse( "hide" );
 			} else {
-				$(this).parent().parent().find('.collapse').collapse('show');
+				$( this ).parent().parent().find( ".collapse" ).collapse( "show" );
 			}
 			return false;
-		});
-	});
+		} );
+	} );
 </script>
 
 <div class="btn-group w-100 mb-3">

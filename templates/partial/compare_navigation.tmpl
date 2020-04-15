@@ -5,52 +5,40 @@
 -->
 
 <script>
-	$(document).ready(function (){
+	$( document ).ready( function (){
 		// Should we auto-scroll when a service category is opened?
 		window.doScroll = false;
 		
-		$('.tab-click').on('click', function() {
+		$( ".tab-click" ).on( "click", function() {
 			window.doScroll = true; // Do scroll when we click a tab header
-			var theCollapse = '#' + $(this).data("target") + "_coll";
+			var theCollapse = $( "#" + $( this ).data( "target" ) + "_coll" );
 
-			if ( $(theCollapse).hasClass('show') ) {
+			if ( theCollapse.hasClass( "show" ) ) {
 				// Already open, lets just trigger the event.
-				$(theCollapse).trigger('shown.bs.collapse');
+				theCollapse.trigger( "shown.bs.collapse" );
 			} else {
-				// Close all
-				$(".card-collapse.collapse").collapse("hide");
-				// Open the one we want
-				$(theCollapse).collapse('show');
+				// Close all, and open the one we want
+				$( ".card-collapse.collapse" ).collapse("hide" );
+				theCollapse.collapse( "show" );
 			}
 			// Do nothing with the click otherwise.
 			return false;
 		});
 
 		// Actual scroll function
-		$('.collapse').on('shown.bs.collapse', function(e) {
+		$( ".collapse" ).on( "shown.bs.collapse", function( e ) {
 			if ( window.doScroll ) {
-				var $card = $(this).closest('.card');
-				$('html,body').animate({
-					scrollTop: $card.offset().top
-				}, 500);
+				$( document ).scrollTop( $( this ).closest( ".card" ).offset().top );
 				window.doScroll = false;
 			}
 		});
 		
 
 		// If there is only one service group, show it by default.
-		if ( $(".card-collapse.collapse").length < 2 ) {
-			$(".card-collapse.collapse").collapse('show');
-		}
+		if ( $( ".card-collapse.collapse" ).length < 2 ) { $( ".card-collapse.collapse" ).collapse( "show" ); }
 
-		$(".close-all-tabs").on("click", function(){
-			$('.card-collapse.collapse').collapse('hide');
-			return false;
-		});
-		$(".open-all-tabs").on("click", function() {
-			$('.card-collapse.collapse').collapse('show');
-			return false;
-		});
+		$( ".close-all-tabs" ).on( "click", function() { $( ".card-collapse.collapse" ).collapse( "hide" ); return false; } );
+		$( ".open-all-tabs"  ).on( "click", function() { $( ".card-collapse.collapse" ).collapse( "show" ); return false; } );
 	});
 </script>
 

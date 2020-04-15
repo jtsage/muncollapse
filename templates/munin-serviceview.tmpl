@@ -20,6 +20,7 @@
 	
 	<div class="row">
 		<div class="col-md-6">
+			<!-- <TMPL_VAR NAME="ZOOMDAY"> -->
 			<img data-href="<TMPL_VAR NAME='ZOOMDAY' />" src="<TMPL_VAR NAME='IMGDAY' />" 
 				alt="daily graph"
 				class="img-fluid img-zoom i<TMPL_IF NAME='STATE_WARNING'> warn</TMPL_IF><TMPL_IF NAME='STATE_CRITICAL'> crit</TMPL_IF>"
@@ -115,8 +116,8 @@
 			
 				<div class="row">
 					<div class="col-md-12">
-						<img alt="Zoom Image - Requires munin-cgi-graph" id="zoom_image" class="d-block mx-auto"/>
-						<div id="image-overlay" style="position: absolute; top: 33px; left: 0; background-color: rgba(255,0,0,0.3); width: 2px; height: 400px; display:none; pointer-events: none;"></div>
+						<img alt="Zoom Image - Requires munin-cgi-graph" id="zoom_image" class="no-refresh d-block mx-auto"/>
+						<div id="image-overlay" style="position: absolute; top: 33px; left: 0; background-color: rgba(3, 50, 109, 0.3); width: 2px; height: 400px; display:none; pointer-events: none;"></div>
 					</div>
 				</div>
 				
@@ -126,46 +127,46 @@
 							<div class="form-group row">
 								<label for="plugin_name" class="col-sm-2 control-label">Plugin Name</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" name="plugin_name" id="plugin_name">
+									<input type="text" class="form-control form-control-sm" name="plugin_name" id="plugin_name">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="start_iso8601" class="col-sm-2 control-label">Time Start/Stop</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="start_iso8601" id="start_iso8601">
+									<input type="text" class="form-control form-control-sm" name="start_iso8601" id="start_iso8601">
 								</div>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="stop_iso8601" id="stop_iso8601">
+									<input type="text" class="form-control form-control-sm" name="stop_iso8601" id="stop_iso8601">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="start_epoch" class="col-sm-2 control-label">Epoch Start/Stop</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="start_epoch" id="start_epoch">
+									<input type="text" class="form-control form-control-sm" name="start_epoch" id="start_epoch">
 								</div>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="stop_epoch" id="stop_epoch">
+									<input type="text" class="form-control form-control-sm" name="stop_epoch" id="stop_epoch">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="lower_limit" class="col-sm-2 control-label">Limit Low/High</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="lower_limit" id="lower_limit">
+									<input type="text" class="form-control form-control-sm" name="lower_limit" id="lower_limit">
 								</div>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" name="upper_limit" id="upper_limit">
+									<input type="text" class="form-control form-control-sm" name="upper_limit" id="upper_limit">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="size_x" class="col-sm-2 control-label">Width/Height</label>
 								<div class="col-sm-5">
-									<div class="input-group">
+									<div class="input-group input-group-sm">
 										<input type="text" class="form-control" name="size_x" id="size_x">
 										<span class="input-group-append"><span class="input-group-text">px</span></span>
 									</div>
 								</div>
 								<div class="col-sm-5">
-									<div class="input-group">
+									<div class="input-group input-group-sm">
 										<input type="text" class="form-control" name="size_y" id="size_y">
 										<span class="input-group-append"><span class="input-group-text">px</span></span>
 									</div>
@@ -174,10 +175,16 @@
 							<div class="form-group row">
 									<input type=hidden name="cgiurl_graph"/>
 									<div class="btn-group w-100 mx-3">
-										<button type="submit" class="btn btn-outline-success">Refresh</button>
-										<button type="button" class="btn btn-outline-primary" name="btnReset">Reset</button>
-										<button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-outline-primary" name="btnReset">&#8634; Reset to Initial</button>
+										<button type="button" class="btn btn-outline-info" name="btnShowDay">&#9201; Show Today</button>
+										<button type="button" class="btn btn-outline-info" name="btnShowWeek">&#9201; Show Week</button>
+										<button type="button" class="btn btn-outline-info" name="btnShowMonth">&#9201; Show Month</button>
+										<button type="button" class="btn btn-outline-info" name="btnShowYear">&#9201; Show Year</button>
 									</div>
+									<div class="btn-group w-100 mx-3 mt-2">
+										<button type="button" class="btn btn-outline-danger w-100" data-dismiss="modal">&times; Close</button>
+									</div>
+									
 							</div>
 						</form>
 					</div>
@@ -186,13 +193,14 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="alert alert-info">
-								<p>Zooming is very easy, it's done in 3 clicks (regular clicks, no drag&amp;drop):</p>
+								<p>Zooming is very easy, it's done in 3 clicks ( regular clicks, no drag &amp; drop ):</p>
 								<ol>
 									<li>Click to define the start of zoom.</li>
 									<li>Click to define the ending of zoom.</li>
-									<li>Refresh.</li>
+									<li>Click inside shaded area to zoom, outside to cancel.</li>
 								</ol>
-								<p>You can use the interactive form too.</p>
+								<p><em>Shortcut:</em> To just set a new start of zoom, click before your start point for your second click.</p>
+								<p class="mb-1">You can use the interactive form too.</p>
 						</div>
 					</div>
 				</div>
@@ -205,33 +213,23 @@
 
 
 <!-- <script src="<TMPL_VAR NAME='R_PATH'>/static/js/dynazoom.js"></script> -->
-	<script src="https://jtsage.dev/munjs/dynazoom.js"></script>
+
+<script src="https://jtsage.dev/munjs/dynazoom.js"></script>
 <script type="text/javascript">
 	//Zoom modal opening
-	$('.img-zoom').click(function(){
-		var query = $(this).attr('data-href');
-		var form = document.getElementById("zoom_form");
-		var image = document.getElementById("zoom_image");
+	$( ".img-zoom" ).click(function(){
+		var query = $(this).attr( "data-href" );
+		var form  = document.getElementById( "zoom_form" );
+		var image = document.getElementById( "zoom_image" );
 		
-		form.onsubmit = function(){//Submit catching
-			var qs = new Querystring(query);
-			var src = "cgiurl_graph=" + qs.get("cgiurl_graph", "/munin-cgi/munin-cgi-graph")
-				+ "&plugin_name=" + form.plugin_name.value
-				+ "&start_epoch=" + form.start_epoch.value
-				+ "&stop_epoch=" + form.stop_epoch.value
-				+ "&rst_start_epoch=" + qs.get("start_epoch", "")
-				+ "&rst_stop_epoch=" + qs.get("stop_epoch", "")
-				+ "&lower_limit=" + form.lower_limit.value
-				+ "&upper_limit=" + form.upper_limit.value
-				+ "&size_x=" + form.size_x.value
-				+ "&size_y=" + form.size_y.value
-			;
-			refreshZoom(src, form, image);
+		form.onsubmit = function(){ 
+			//Submit catching - do nothing but blur the current field.
+			document.activeElement.blur();
 			return false;
 		};
-		
+
 		refreshZoom(query, form, image);
-		$('#zoom').modal('show');
+		$( "#zoom" ).modal( "show" );
 	});
 </script>
 
