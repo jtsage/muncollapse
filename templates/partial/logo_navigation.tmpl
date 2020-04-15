@@ -4,25 +4,6 @@
 	Used: All views, called after from head.
 -->
 
-<!-- TEST DATA :: BEGIN -->
-<!-- a/n: IF THE NAVIGATION LOOKS WIERD, PLEASE INCLUDE THIS INFO WHEN ASKING FOR HELP FIXING. -->
-<TMPL_IF NAME="PATH"><TMPL_LOOP NAME="PATH">
-	<!-- PATH <TMPL_VAR NAME="PATHNAME"> -->
-</TMPL_LOOP>
-<TMPL_ELSE>
-	<!-- SHIT -->
-</TMPL_IF>
-
-<TMPL_IF NAME="CATEGORY" >
-	<!-- CAT: <TMPL_VAR ESCAPE="HTML" NAME="CATEGORY" /> -->
-</TMPL_IF>
-<TMPL_IF NAME="NAME">
-	<!-- NAME <TMPL_VAR ESCAPE="HTML" NAME="NAME"> -->
-<TMPL_ELSE>
-	<!-- NO NAME -->
-</TMPL_IF>
-<!-- TEST DATA :: END -->
-
 <TMPL_IF NAME="PATH">
 	<nav aria-label="breadcrumb pt1">
 		<ol class="breadcrumb">
@@ -43,6 +24,10 @@
 					</TMPL_IF>
 				</li>
 			</TMPL_LOOP>
+			<div class="custom-control custom-switch ml-auto mr-0">
+				<input type="checkbox" class="custom-control-input" id="autorefimg">
+				<label class="custom-control-label" for="autorefimg">Auto-refresh Images</label>
+			</div>
 		</ol>
 	</nav>
 <TMPL_ELSE>
@@ -50,7 +35,7 @@
 		<ol class="breadcrumb">
 			<TMPL_IF NAME="NAME">
 				<!-- 2.0.37 - Shouldn't get hit with new HTML generator -->
-				<li class="breadcrumb-item"><a href="<TMPL_VAR NAME='R_PATH'>">Home</a></li>
+				<li class="breadcrumb-item"><a href="<TMPL_VAR NAME='R_PATH' />">Home</a></li>
 				<li class="breadcrumb-item"><TMPL_VAR NAME="NAME" /></li>
 			<TMPL_ELSE>
 				<li class="breadcrumb-item">Home</li>
@@ -60,5 +45,25 @@
 </TMPL_IF>
 
 <TMPL_IF NAME="PEERS">
-	<TMPL_INCLUDE NAME="bottom_navigation.tmpl">
+	<TMPL_INCLUDE NAME="bottom_navigation.tmpl" />
+</TMPL_IF>
+
+<TMPL_IF NAME="COMPARISON-DAY">
+	<h2 class="mb-3">Comparison: by day</h2>
+	<TMPL_INCLUDE NAME="compare_navigation.tmpl" />
+</TMPL_IF>
+
+<TMPL_IF NAME="COMPARISON-WEEK">
+	<h2 class="mb-3">Comparison: by week</h2>
+	<TMPL_INCLUDE NAME="compare_navigation.tmpl" />
+</TMPL_IF>
+
+<TMPL_IF NAME="COMPARISON-MONTH">
+	<h2 class="mb-3">Comparison: by month</h2>
+	<TMPL_INCLUDE NAME="compare_navigation.tmpl" />
+</TMPL_IF>
+
+<TMPL_IF NAME="COMPARISON-YEAR">
+	<h2 class="mb-3">Comparison: by year</h2>
+	<TMPL_INCLUDE NAME="compare_navigation.tmpl" />
 </TMPL_IF>

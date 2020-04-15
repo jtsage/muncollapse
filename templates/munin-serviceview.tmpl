@@ -116,7 +116,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<img alt="Zoom Image - Requires munin-cgi-graph" id="zoom_image" class="d-block mx-auto"/>
-						<div id="image-overlay" style="position: absolute; top: 0; left: 0; background-color: rgba(255,0,0,0.3); width: 2px; height: 100%; display:none; pointer-events: none;"></div>
+						<div id="image-overlay" style="position: absolute; top: 33px; left: 0; background-color: rgba(255,0,0,0.3); width: 2px; height: 400px; display:none; pointer-events: none;"></div>
 					</div>
 				</div>
 				
@@ -204,7 +204,8 @@
 <TMPL_INCLUDE NAME="partial/footer_pre.tmpl" />
 
 
-<script src="<TMPL_VAR NAME='R_PATH'>/static/js/dynazoom.js"></script>
+<!-- <script src="<TMPL_VAR NAME='R_PATH'>/static/js/dynazoom.js"></script> -->
+	<script src="https://jtsage.dev/munjs/dynazoom.js"></script>
 <script type="text/javascript">
 	//Zoom modal opening
 	$('.img-zoom').click(function(){
