@@ -48,6 +48,7 @@ function refreshZoom( query, form, image ) {
     form.btnShowWeek.onclick  = function() { showPeriod( 2 ); };
     form.btnShowMonth.onclick = function() { showPeriod( 3 ); };
     form.btnShowYear.onclick  = function() { showPeriod( 4 ); };
+    form.onsubmit             = function() { document.activeElement.blur(); refreshImg(); return false; };
 
     // Sets the onClick handler
     image.onclick = click;
@@ -86,6 +87,9 @@ function refreshZoom( query, form, image ) {
         highLighter.style.left      = "0px";
         highLighter.style.width     = "2px";
         highLighter.style.display   = "none";
+
+        document.activeElement.blur();
+        return false;
     }
 
     function refreshImg(event) {
@@ -122,8 +126,8 @@ function refreshZoom( query, form, image ) {
         refreshImg();
     }
 
-    function click(event) {
-        var relativeClickX = getClickLocation(event),
+    function click( event ) {
+        var relativeClickX = getClickLocation( event ),
             thisEpoch      = null;
 
         switch ( ( clickCounter++ ) % 3 ) {
@@ -198,9 +202,9 @@ function refreshZoom( query, form, image ) {
     }
 
     function offsetEpoch( clickX ) {
-        if ( clickX < 0 ) { return Math.floor(epoch_shown_start); }
+        if ( clickX < 0 ) { return Math.floor( epoch_shown_start ); }
 
-        if ( clickX > graph_shown_width ) { return Math.floor(epoch_shown_stop); }
+        if ( clickX > graph_shown_width ) { return Math.floor( epoch_shown_stop ); }
 
         return Math.floor( epoch_shown_start + ( clickX * eachPixelEpoch ) );
     }
@@ -229,5 +233,7 @@ function refreshZoom( query, form, image ) {
 
         updateStartStop();
         refreshImg();
+        document.activeElement.blur();
+        return false;
     }
 }

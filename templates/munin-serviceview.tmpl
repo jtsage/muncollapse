@@ -184,6 +184,7 @@
 									<div class="btn-group w-100 mx-3 mt-2">
 										<button type="button" class="btn btn-outline-danger w-100" data-dismiss="modal">&times; Close</button>
 									</div>
+									<button type="submit" class="d-none">Hidden Submit Button - "onsubmit" needs this to exist.</button>
 									
 							</div>
 						</form>
@@ -220,12 +221,6 @@
 		var form  = document.getElementById( "zoom_form" );
 		var image = document.getElementById( "zoom_image" );
 		
-		form.onsubmit = function(){ 
-			//Submit catching - do nothing but blur the current field.
-			document.activeElement.blur();
-			return false;
-		};
-
 		refreshZoom(query, form, image);
 		$( "#zoom" ).modal( "show" );
 	});
